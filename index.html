@@ -24,13 +24,13 @@
 		A Todo List
 		<div id="todo-error"></div>
 		<label for="description"></label>
-
-		<input type="text" class="form-control" id="description" placeholder="task" name="description"> <button
-			class="btn btn-success" type="submit">Create</button>
+		<form onsubmit="app.controllers.todoController.addTodo(event)">
+			<input type="text" class="form-control" id="description" placeholder="task" name="description"> <button
+				class="btn btn-success" type="submit">Create</button>
 	</div>
-	<form onsubmit="app.controllers.todoController.addTodo(event)"></form>
+	</form>
 	<div id="todos"></div>
-	</div>
+
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 	<script type="module" src="app/main.js"></script>

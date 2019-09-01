@@ -6,11 +6,15 @@ const _todoService = new TodoService()
 //connect the draw to the method
 function _drawTodos() {
 	let tasks = _todoService.Todos
-	let template = '<ol>'
+	let template = '<ul>'
 	tasks.forEach(t => {
 		template += t.Template
 	});
-	document.getElementById('todos').innerHTML = template + "</ol>"
+	document.getElementById('todos').innerHTML = template + "</ul>"
+
+}
+function completeLine() {
+	document.getElementById('completed-task').style.textDecoration = "line-through"
 }
 
 //NOTE Keep an eye on your console for any of these errors
@@ -42,6 +46,8 @@ export default class TodoController {
 	toggleTodoStatus(todoId) {
 		_todoService.toggleTodoStatus(todoId)
 		_drawTodos()
+		debugger
+		completeLine()
 	}
 
 	//NOTE This method will pass an Id to your service for the TODO that will need to be deleted

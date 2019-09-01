@@ -7,19 +7,23 @@ export default class Todo {
     this.message = data.message
 
   }
-  // hello hello
+
 
 
 
   get Template() {
     return `
     <div class="col-4">
-    <div class="" style="width: 18rem;">
+    <ul id="completed-task"
+    <div class="" >
     <div class="card-body"${this._id}>
-      <p class="card-text">${this.description}</p>
-      <button onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')">x</button>
+   
+    <p class="card-text">${this.description}</p>
+    
+    <input type="checkbox"  onclick=" app.controllers.todoController.toggleTodoStatus('${this._id}')">
       <a onclick="app.controllers.todoController.removeTodo('${this._id}')" class="btn btn-danger">remove list</a>
     </div>
+    </ul>
   </div>
     `
   }
