@@ -3,3 +3,6 @@
   font-size: 2em;
 }
 
+body{
+  background-image: url('https://bcw-sandbox.herokuapp.com/api/image');
+}
