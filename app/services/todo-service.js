@@ -1,8 +1,8 @@
 //NOTE your service is all set up for the observer pattern but there is still work to be done
-
+import Todo from "../Models/Todo.js"
 // @ts-ignore
 const todoApi = axios.create({
-	baseURL: 'https://bcw-sandbox.herokuapp.com/api/jake/todos/',
+	baseURL: 'https://bcw-sandbox.herokuapp.com/api/jeremyO/todos/',
 	timeout: 3000
 });
 
@@ -21,8 +21,12 @@ function _setState(prop, data) {
 }
 
 export default class TodoService {
+
 	get TodoError() {
 		return _state.error
+	}
+	get Todos() {
+		return _state.todos.map(t => new Todo(t))
 	}
 
 	addSubscriber(prop, fn) {
@@ -33,7 +37,10 @@ export default class TodoService {
 		console.log("Getting the Todo List")
 		todoApi.get()
 			.then(res => {
+				_setState('todos', res.data.data)
+				console.log(res.data.data)
 				//TODO Handle this response from the server
+
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
@@ -41,13 +48,22 @@ export default class TodoService {
 	addTodo(todo) {
 		todoApi.post('', todo)
 			.then(res => {
+				_state.todos.push(new Todo(res.data.data))
+				_setState('todos', _state.todos)
+
 				//TODO Handle this response from the server (hint: what data comes back, do you want this?)
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
-
+	// changing the completed status to true wich marks it done
 	toggleTodoStatus(todoId) {
-		let todo = _state.todos.find(todo => todo._id == todoId)
+		let todo = _state.todos.find(t => t._id == todoId)
+		todo.completed != false
+		todoApi.put(todoId, { completed: true })
+			.then(res => {
+				_setState("todos", _state.todos)
+				console.log("changed")
+			})
 		//TODO Make sure that you found a todo, 
 		//		and if you did find one
 		//		change its completed status to whatever it is not (ex: false => true or true => false)
@@ -60,9 +76,21 @@ export default class TodoService {
 	}
 
 	removeTodo(todoId) {
+		todoApi.delete(todoId)
+			.then(res => {
+				let index = _state.todos.findIndex(t => t._id == _state.todos)
+				_state.todos.splice(index, 1)
+				_setState('todos', _state.todos)
+			})
+			.catch(err => {
+				console.error(err)
+			})
 		//TODO Work through this one on your own
 		//		what is the request type
 		//		once the response comes back, what do you need to insure happens?
 	}
 
+
 }
+
+
