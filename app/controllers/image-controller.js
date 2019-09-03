@@ -4,22 +4,11 @@ const _is = new ImageService()
 
 
 
-// debugger
-// let image = _is.image
-//let template = ''
-//image.forEach(i => {
-//template += i.Template
-//})
-// let image = _is.image
-// let template = ``
-// image.forEach(i => {
-//   template += i.Template
-// })
-//lol
+
 
 function _drawImg() {
-  let imgEle = "<div class=" + _is.image.id + ">"
-  imgEle += "<img class= 'background' src= " + _is.image.url + " >"
+  let imgElem = "<div class=" + _is.image.id + ">"
+  imgElem += "<img class= 'background' src= " + _is.image.url + " >"
   document.getElementById('bg-image').setAttribute('background', _is.image.url)
 
   //document.getElementById('bg-image').insertAdjacentHTML('afterbegin', imgEle);

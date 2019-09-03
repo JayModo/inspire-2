@@ -8,6 +8,8 @@ var _weatherService = new WeatherService()
 
 //TODO Complete rendering data to the screen
 function drawWeather() {
+
+	document.getElementById('weather').innerHTML
 	console.log("THE WEATHER MAN SAYS:", _weatherService.Weather)
 }
 
@@ -16,6 +18,10 @@ export default class WeatherController {
 	constructor() {
 		_weatherService.addSubscriber('weather', drawWeather)
 		_weatherService.getWeather()
+	}
+
+	getWeather() {
+		drawWeather()
 	}
 
 }
