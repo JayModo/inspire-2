@@ -6,7 +6,7 @@ import ImageController from "./controllers/image-controller.js";
 class App {
   constructor() {
     this.controllers = {
-      ImageController: new ImageController(),
+      imageController: new ImageController(),
       weatherController: new WeatherController(),
       todoController: new TodoController()
     }

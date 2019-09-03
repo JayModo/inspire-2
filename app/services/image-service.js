@@ -27,17 +27,22 @@ export default class ImageService {
 	}
 
 
+
 	addSubscriber(prop, fn) {
 		_subscribers[prop].push(fn)
 	}
 
 
-	getUrl(res) {
+	getUrl(id) {
+
 		console.log('Calling the img')
-		imgApi.get()
+		imgApi.get(id)
 			.then(res => {
+				// _setState('image', new Image(res.data.url))
 				_setState('image', res.data)
-				console.log(res.data)
+				console.log(res.data.url)
+				console.log(_state.image);
+				return _state.image
 			})
 
 	}

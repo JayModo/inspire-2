@@ -1,13 +1,19 @@
 export default class Image {
   constructor(data) {
     this.id = data.id
-    this.large_url = data.large_url
+    this.url = data.url
   }
 
   get Template() {
+    debugger
     return `
-  <img src="${this.large_url}" alt="">
-    `
+    
+   <div class=" ${this.id}">
+            <img src="${this.url}">
+            <div class="card-body">
+            
+
+                `
   }
 
 
