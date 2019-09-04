@@ -5,7 +5,7 @@ export default class Image {
   }
 
   get Template() {
-    debugger
+
     return `
     
    <div class=" ${this.id}">

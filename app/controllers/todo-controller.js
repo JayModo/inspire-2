@@ -6,11 +6,12 @@ const _todoService = new TodoService()
 //connect the draw to the method
 function _drawTodos() {
 	let tasks = _todoService.Todos
-	let template = '<ul>'
+	//FIXME add the _todoService.todos.length to the page
+	let template = _todoService.Todos.length + '<ul>'
 	tasks.forEach(t => {
 		template += t.Template
 	});
-	document.getElementById('todos').innerHTML = template + "</ul>"
+	document.getElementById('todos').innerHTML = template + '</ul>'
 
 }
 function completeLine() {
@@ -46,7 +47,6 @@ export default class TodoController {
 	toggleTodoStatus(todoId) {
 		_todoService.toggleTodoStatus(todoId)
 		_drawTodos()
-		debugger
 		completeLine()
 	}
 

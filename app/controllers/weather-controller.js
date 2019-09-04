@@ -9,11 +9,30 @@ var _weatherService = new WeatherService()
 //TODO Complete rendering data to the screen
 function drawWeather() {
 
-	document.getElementById('weather').innerHTML
 	console.log("THE WEATHER MAN SAYS:", _weatherService.Weather)
+
+
+	let weatherElem = document.getElementById('weather')
+
+	let weatherTemplate = `
+	
+	<div class='card-header' id="${_weatherService.Weather.id}">
+	${_weatherService.Weather.city}
+	<div	
+	class='card-body' id="${_weatherService.Weather.id}">${_weatherService.Weather.kelvin}\ndegrees
+${_weatherService.Weather.current}
+	</div>	
+	<p class="card-text"> Wind Speeds \n${_weatherService.Weather.wind}MPH
+	</div>
+
+`
+	weatherElem.innerHTML = weatherTemplate
+
+	//FIXME set the weatherelem innerhtml to the weather template
 }
 
 export default class WeatherController {
+
 
 	constructor() {
 		_weatherService.addSubscriber('weather', drawWeather)

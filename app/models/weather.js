@@ -7,8 +7,27 @@ export default class Weather {
 
     //TODO You should probably convert the temperature data to either F or C
     //      check out the other data that comes back and see if there is anything you want to try
-
+    //FIXME add in the rest of the necessary weather data
     this.city = data.name
-    this.kelvin = data.main.temp
+    this.kelvin = Math.round(data.main.temp) * 1.8 - 459.67
+    this.clouds = data.clouds
+    this.sys = data.sys
+    this.coord = data.coord
+    this.wind = data.wind.speed
+    this.current = data.weather[0].description
+    this.icon = data.weather[0].icon
   }
+
+  get Template() {
+    return `
+  
+  
+    `
+  }
+
+
+
+
+
+
 }

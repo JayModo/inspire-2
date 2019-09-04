@@ -9,31 +9,50 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body id="bg-image">
 
 
+	<div class="row">
+		<div class="col-3">
 
-	<div id="weather">
-		Your Weather Template
+			<div id="weather">
+				Your Weather Template
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-10">
+
+			<div id="quote">
+
+			</div>
+		</div>
 	</div>
 
-	<div id="quote">
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
 
 
+				<div>
+					A Todo List
+					<div id="todo-error"></div>
+
+					<label for="description"></label>
+					<a type="button" data-toggle="collapse" href="#todos">
+					</a>
+					<form onsubmit="app.controllers.todoController.addTodo(event)">
+						<input type="text" class="form-control" id="description" placeholder="task" name="description"> <button
+							class="btn btn-success" type="submit">Create</button>
+					</form>
+					<div id="todos"></div>
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<div>
-		A Todo List
-		<div id="todo-error"></div>
-		<label for="description"></label>
-		<form onsubmit="app.controllers.todoController.addTodo(event)">
-			<input type="text" class="form-control" id="description" placeholder="task" name="description"> <button
-				class="btn btn-success" type="submit">Create</button>
-	</div>
-	</form>
-	<div id="todos"></div>
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>

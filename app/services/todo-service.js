@@ -57,8 +57,9 @@ export default class TodoService {
 	}
 	// changing the completed status to true wich marks it done
 	toggleTodoStatus(todoId) {
+		debugger
 		let todo = _state.todos.find(t => t._id == todoId)
-		todo.completed != false
+		// todo.completed != false
 		todoApi.put(todoId, { completed: true })
 			.then(res => {
 				//	_setState("todos", _state.todos)
@@ -79,13 +80,12 @@ export default class TodoService {
 	}
 
 	removeTodo(todoId) {
-		debugger
 		todoApi.delete(todoId)
 			.then(res => {
 				let index = _state.todos.findIndex(t => t._id == _state.todos)
 				_state.todos.splice(index)
-				_setState('todos', _state.todos)
-				this.saveTask()
+				//	_setState('todos', _state.todos)
+
 			})
 			.catch(err => {
 				console.error(err)

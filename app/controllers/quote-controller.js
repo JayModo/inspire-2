@@ -4,9 +4,14 @@ let _qs = new QuoteService()
 
 
 function _drawquote() {
-  let quoteElem = "<div class='card-body'" + _qs.quote.id + ">"
-  quoteElem += "<div" + _qs.quote.quote + " >"
-  quoteElem = document.getElementById('quote').innerHTML
+  //FIXME Draw the rest of the quote data to the screen
+  //TODO now style where you want it and size
+  let quoteElem = document.getElementById('quote')
+  let quote = `
+  <div class='card-body' id="${_qs.quote.quote.id}">${_qs.quote.quote.body}
+  </div>
+  <p class="card-text"${_qs.quote.quote.id}"> ${_qs.quote.quote.author}</div>`
+  quoteElem.innerHTML = quote
 }
 
 //TODO Create methods for constructor, and rendering the quote to the page 
