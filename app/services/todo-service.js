@@ -40,7 +40,7 @@ export default class TodoService {
 				_setState('todos', res.data.data)
 				console.log(res.data.data)
 				//TODO Handle this response from the server
-				this.saveTask()
+				//	this.saveTask()
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
@@ -50,7 +50,7 @@ export default class TodoService {
 			.then(res => {
 				_state.todos.push(new Todo(res.data.data))
 				_setState('todos', _state.todos)
-				this.saveTask()
+				//	this.saveTask()
 				//TODO Handle this response from the server (hint: what data comes back, do you want this?)
 			})
 			.catch(err => _setState('error', err.response.data))
@@ -95,9 +95,9 @@ export default class TodoService {
 		//		what is the request type
 		//		once the response comes back, what do you need to insure happens?
 	}
-	saveTask() {
-		localStorage.setItem('completed-task', JSON.stringify(_state.todos))
-	}
+	// saveTask() {
+	// 	localStorage.setItem('completed-task', JSON.stringify(_state.todos))
+	// }
 
 }
 

@@ -9,7 +9,7 @@ export default class Weather {
     //      check out the other data that comes back and see if there is anything you want to try
     //FIXME add in the rest of the necessary weather data
     this.city = data.name
-    this.kelvin = Math.round(data.main.temp) * 1.8 - 459.67
+    this.kelvin = (data.main.temp) * 1.8 - 459.67
     this.clouds = data.clouds
     this.sys = data.sys
     this.coord = data.coord

@@ -48,7 +48,7 @@ export default class TodoController {
 	toggleTodoStatus(e) {
 		_todoService.toggleTodoStatus(e)
 		_drawTodos()
-
+		completeLine()
 	}
 
 	//NOTE This method will pass an Id to your service for the TODO that will need to be deleted
