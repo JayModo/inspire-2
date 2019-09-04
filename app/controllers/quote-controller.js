@@ -10,7 +10,7 @@ function _drawquote() {
   let quote = `
   <div class='card-body' id="${_qs.quote.quote.id}">${_qs.quote.quote.body}
   </div>
-  <p class="card-text"${_qs.quote.quote.id}"> ${_qs.quote.quote.author}</div>`
+  <p class="card-text"${_qs.quote.quote.id}"> - ${_qs.quote.quote.author}</div>`
   quoteElem.innerHTML = quote
 }
 

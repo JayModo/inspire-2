@@ -16,6 +16,7 @@ function _drawTodos() {
 }
 function completeLine() {
 	document.getElementById('completed-task').style.textDecoration = "line-through"
+
 }
 
 //NOTE Keep an eye on your console for any of these errors
@@ -44,10 +45,10 @@ export default class TodoController {
 	}
 
 	//NOTE This method will pass an Id to your service for the TODO that will need to be toggled
-	toggleTodoStatus(todoId) {
-		_todoService.toggleTodoStatus(todoId)
+	toggleTodoStatus(e) {
+		_todoService.toggleTodoStatus(e)
 		_drawTodos()
-		completeLine()
+
 	}
 
 	//NOTE This method will pass an Id to your service for the TODO that will need to be deleted
